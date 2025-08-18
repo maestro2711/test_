@@ -12,7 +12,8 @@
     <h1>
 
         <p><?php 
-         require_once 'function.php'; // Include the function file
+         require_once './function.php'; // Include the function file
+         require_once 'file_system.php'; // Include the file system operations
           echo "This is a test file for PHP execution.<br />"; 
           echo __FILE__ . "<br />"; // Output the current file name
           ?></p>
