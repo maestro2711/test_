@@ -2,6 +2,18 @@
 require_once 'Transaction.php'; // Include the Transaction class file
 require_once 'PaymentProfile.php';
 require_once 'Customer.php';
+require_once 'Inheritance.php'; // Include the Inheritance class file
+require_once 'child.php'; // Include the Child class file
+
+$toaster = new ToasterPro();
+
+$toaster->addSlice('Whole Wheat');
+$toaster->addSlice('Rye');
+$toaster->addSlice('Sourdough');
+$toaster->addSlice('Bagel');
+
+$toaster->toastbagel();
+
 $transaction= new Transaction(100,'transaction 1'); // Create a new instance of the Transaction class
 $transaction1= new Transaction(100,'transaction 2'); // Create another instance of the Transaction class
 #$transaction->customer = new Customer(); // Assign a new Customer instance to the transaction
