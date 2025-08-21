@@ -2,8 +2,12 @@
 require_once 'Transaction.php'; // Include the Transaction class file
 require_once 'PaymentProfile.php';
 require_once 'Customer.php';
-require_once 'Inheritance.php'; // Include the Inheritance class file
+require_once 'inheritance.php'; // Include the Inheritance class file
 require_once 'child.php'; // Include the Child class file
+require_once __DIR__ . '/../superglobals/routing.php';
+require_once __DIR__ . '/../superglobals/RouteNotFoundException.php'; # Include the RouteNotFoundException class file
+require_once __DIR__ . '/../superglobals/superglobals.php';
+require_once __DIR__ . '/../superglobals/Home.php';
 
 $toaster = new ToasterPro();
 
@@ -31,3 +35,14 @@ $transaction->addTax(10)->applyDiscount(10); // Add tax to the transaction amoun
 
 echo $transaction->getDetails(); // Output the transaction details
 var_dump($transaction->getAmount()); // Output the transaction object to verify its creation
+
+$router = new Router();
+$router->register('/home', function() {
+    echo "Welcome to the home page!";
+});
+$router->register('/about', function() {
+    echo "This is the about page!";
+});
+
+// Simulate a request to the home route
+echo $router->resolve($_SERVER['REQUEST_URI'] ?? '/home'); // Resolve the request URI to the appropriate route
